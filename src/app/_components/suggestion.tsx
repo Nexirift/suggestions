@@ -1,28 +1,28 @@
 import { Button } from '@/components/ui/button';
 import {
 	Card,
+	CardDescription,
 	CardHeader,
-	CardTitle,
-	CardDescription
+	CardTitle
 } from '@/components/ui/card';
 import {
+	Collapsible,
+	CollapsibleContent,
+	CollapsibleTrigger
+} from '@/components/ui/collapsible';
+import {
 	Dialog,
-	DialogTrigger,
+	DialogClose,
 	DialogContent,
+	DialogDescription,
+	DialogFooter,
 	DialogHeader,
 	DialogTitle,
-	DialogDescription,
-	DialogClose,
-	DialogFooter
+	DialogTrigger
 } from '@/components/ui/dialog';
-import {
-	Collapsible,
-	CollapsibleTrigger,
-	CollapsibleContent
-} from '@/components/ui/collapsible';
 import { useToast } from '@/hooks/use-toast';
 import { api } from '@/trpc/react';
-import { X, ChevronDown, ChevronUp, Contact, Info } from 'lucide-react';
+import { ChevronDown, ChevronUp, Contact, Info, X } from 'lucide-react';
 import { useState } from 'react';
 
 export function Suggestion({
