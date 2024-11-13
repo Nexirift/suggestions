@@ -8,7 +8,7 @@ export function AllSuggestions() {
 	const allSuggestions = api.suggestion.getAll.useQuery();
 
 	return (
-		<div className="max-w-ws flex w-[25%] flex-col gap-2 text-center">
+		<div className="max-w-ws flex w-[30%] flex-col gap-2 text-center">
 			{allSuggestions?.data && allSuggestions.data.length > 0 ? (
 				allSuggestions.data?.map((suggestion) => (
 					<Suggestion

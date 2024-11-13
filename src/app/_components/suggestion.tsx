@@ -30,6 +30,7 @@ import {
 	Info,
 	X
 } from 'lucide-react';
+import moment from 'moment';
 import { useState } from 'react';
 
 export function Suggestion({
@@ -155,15 +156,9 @@ export function Suggestion({
 							)}
 						</CollapsibleTrigger>
 						<CollapsibleContent className="text-sm text-left text-muted-foreground">
-							{suggestion.createdAt.toLocaleString('en-AU', {
-								hour: 'numeric',
-								minute: 'numeric',
-								hour12: true,
-								year: 'numeric',
-								month: 'long',
-								day: 'numeric',
-								dayPeriod: 'long'
-							})}
+							{moment(suggestion.createdAt).format(
+								'MMMM Do YYYY, h:mm:ss A | [GMT]Z'
+							)}
 						</CollapsibleContent>
 					</Collapsible>
 				</CardDescription>
