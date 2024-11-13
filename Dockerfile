@@ -35,6 +35,12 @@ ARG CONFIG_FILE
 ENV NODE_ENV production
 ENV NEXT_TELEMETRY_DISABLED 1
 
+# Install tzdata for timezone configuration
+RUN apt-get update && apt-get install -y tzdata
+
+# Set the timezone environment variable
+ENV TZ=Australia/Adelaide
+
 COPY --from=builder /app/scripts ./scripts
 RUN chmod +x ./scripts/run.sh
 

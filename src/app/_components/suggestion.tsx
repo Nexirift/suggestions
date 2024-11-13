@@ -22,7 +22,14 @@ import {
 } from '@/components/ui/dialog';
 import { useToast } from '@/hooks/use-toast';
 import { api } from '@/trpc/react';
-import { ChevronDown, ChevronUp, Contact, Info, X } from 'lucide-react';
+import {
+	Calendar,
+	ChevronDown,
+	ChevronUp,
+	Contact,
+	Info,
+	X
+} from 'lucide-react';
 import { useState } from 'react';
 
 export function Suggestion({
@@ -34,6 +41,7 @@ export function Suggestion({
 		name: string;
 		description: string;
 		contact: string | null;
+		createdAt: Date;
 	};
 	refetch: () => void;
 }) {
@@ -130,6 +138,34 @@ export function Suggestion({
 							</CollapsibleContent>
 						</Collapsible>
 					)}
+					<Collapsible
+						className="pt-1"
+						open={isContactOpen}
+						onOpenChange={setIsContactOpen}
+					>
+						<CollapsibleTrigger className="text-sm text-left text-muted-foreground flex justify-between w-full items-center">
+							<div className="flex items-center">
+								<Calendar className="h-4 w-4" /> View submission
+								date and time.
+							</div>
+							{isContactOpen ? (
+								<ChevronUp className="h-4 w-4" />
+							) : (
+								<ChevronDown className="h-4 w-4" />
+							)}
+						</CollapsibleTrigger>
+						<CollapsibleContent className="text-sm text-left text-muted-foreground">
+							{suggestion.createdAt.toLocaleString('en-AU', {
+								hour: 'numeric',
+								minute: 'numeric',
+								hour12: true,
+								year: 'numeric',
+								month: 'long',
+								day: 'numeric',
+								dayPeriod: 'long'
+							})}
+						</CollapsibleContent>
+					</Collapsible>
 				</CardDescription>
 			</CardHeader>
 		</Card>
