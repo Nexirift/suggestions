@@ -50,6 +50,7 @@ export function Suggestion({
 
 	const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
 	const [isContactOpen, setIsContactOpen] = useState(false);
+	const [isDateAndTimeOpen, setIsDateAndTimeOpen] = useState(false);
 
 	const removeSuggestion = api.suggestion.remove.useMutation({
 		onSuccess: () => {
@@ -141,8 +142,8 @@ export function Suggestion({
 					)}
 					<Collapsible
 						className="pt-1"
-						open={isContactOpen}
-						onOpenChange={setIsContactOpen}
+						open={isDateAndTimeOpen}
+						onOpenChange={setIsDateAndTimeOpen}
 					>
 						<CollapsibleTrigger className="text-sm text-left text-muted-foreground flex justify-between w-full items-center">
 							<div className="flex items-center">
